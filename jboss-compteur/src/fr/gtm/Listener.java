@@ -37,10 +37,10 @@ public class Listener implements HttpSessionListener {
      */
     public void sessionDestroyed(HttpSessionEvent se)  { 
     	HttpSession session = se.getSession();
-    	Compteur compteur = (Compteur) session.getAttribute("compteur");
-    	if(compteur != null) {
-    		compteur.remove();
-    	}
+//    	Compteur compteur = (Compteur) session.getAttribute("compteur");
+//    	if(compteur != null) {
+//    		compteur.remove();
+//    	}
     }
 	
 }

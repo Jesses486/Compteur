@@ -1,14 +1,10 @@
 package fr.gtm;
 
 import java.io.Serializable;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.ejb.Remove;
-import javax.ejb.Stateful;
-import javax.ejb.StatefulTimeout;
 import javax.enterprise.context.SessionScoped;
 
 @SessionScoped
@@ -42,9 +38,5 @@ public class Compteur implements Serializable{
 	public void incrementer() {
 		value++;
 	} 
-	
-	@Remove
-	public void remove() {
-	} 
-	
+
 }
