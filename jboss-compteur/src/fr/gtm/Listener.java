@@ -7,10 +7,6 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-/**
- * Application Lifecycle Listener implementation class Listener
- *
- */
 @WebListener
 public class Listener implements HttpSessionListener {
 
