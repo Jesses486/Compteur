@@ -2,6 +2,7 @@ package fr.gtm;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
@@ -16,25 +17,16 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/CompteurServlet")
 public class CompteurServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@Inject 
+	private Compteur compteur;
 
     public CompteurServlet() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		Compteur compteur = (Compteur) session.getAttribute("compteur");
-//		if(compteur == null) {
-//			try {
-//			InitialContext ctx = new InitialContext();
-//			compteur = (Compteur) ctx.lookup("java:app/jboss-compteur/Compteur");
-//			session.setAttribute("compteur", compteur);
-//			}
-//			catch (NamingException e) {
-//				e.printStackTrace();
-//			}
-//		}
 		compteur.incrementer();
+		request.getSession().setAttribute("compteur", compteur);
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/compteur.jsp");
 		rd.forward(request, response);
 	}

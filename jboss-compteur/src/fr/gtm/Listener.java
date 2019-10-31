@@ -22,14 +22,14 @@ public class Listener implements HttpSessionListener {
      */
     public void sessionCreated(HttpSessionEvent se)  { 
     	HttpSession session = se.getSession();
-		try {
-    	InitialContext ctx = new InitialContext();
-    	Compteur compteur = (Compteur) ctx.lookup("java:app/jboss-compteur/Compteur");
-		session.setAttribute("compteur", compteur);
-		}
-		catch (NamingException e) {
-		e.printStackTrace();
-		}
+//		try {
+//    	InitialContext ctx = new InitialContext();
+//    	Compteur compteur = (Compteur) ctx.lookup("java:app/jboss-compteur/Compteur");
+//		session.setAttribute("compteur", compteur);
+//		}
+//		catch (NamingException e) {
+//		e.printStackTrace();
+//		}
     }
 
 	/**
